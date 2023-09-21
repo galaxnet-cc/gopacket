@@ -521,3 +521,8 @@ func (h *TPacket) WritePacketData(pkt []byte) error {
 	_, err := unix.Write(h.fd, pkt)
 	return err
 }
+
+// ZDY: 暴露fd方便设置更多选项，例如CLOSE_ON_EXEC
+func (h *TPacket) FD() int {
+	return h.fd
+}
